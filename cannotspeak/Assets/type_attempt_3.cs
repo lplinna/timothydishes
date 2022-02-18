@@ -120,6 +120,11 @@ public class type_attempt_3 : MonoBehaviour
                         yield return new WaitUntil(()=> Input.GetKeyDown("space"));
                         rawShown = "";
                         break;
+                    case 't':
+                        StartCoroutine(swivelCarat());
+                        StartCoroutine(userInput());
+                        yield break;
+                        break;
 
                 }
                 offset += endchar;
@@ -151,6 +156,52 @@ public class type_attempt_3 : MonoBehaviour
         }
 
     }
+
+
+    string userCommand = "";
+    char swivel = '_';
+    string unallowed = "<>\n\b\r";
+    IEnumerator userInput()
+    {
+        while(true)
+        {
+        yield return new WaitUntil(()=> Input.anyKey);
+        string c = Input.inputString;
+        if(c=="\b" && userCommand.Length > 0)
+        {
+            userCommand = userCommand.Substring(0,userCommand.Length-1);
+            Debug.Log("beef");
+            c ="";
+        }
+
+        if(c=="\r")
+        {
+            Debug.Log("submitting");
+        }
+
+        if(c!="" && !unallowed.Contains(c))
+        {
+        userCommand += Input.inputString;
+        }
+        textmesh.text = rawShown + userCommand + swivel;
+        }
+    }
+
+
+    IEnumerator swivelCarat()
+    {
+        char[] char_ray = {'_','\\','I','/'};
+        int char_at = 0;
+        while(true)
+        {
+            yield return new WaitForSeconds(0.3f);
+            swivel = char_ray[char_at];
+            textmesh.text = rawShown + userCommand + swivel;
+            char_at++;
+            if(char_at >= char_ray.Length){char_at = 0;}
+        }
+    }
+
 
     // Update is called once per frame
     void Update()

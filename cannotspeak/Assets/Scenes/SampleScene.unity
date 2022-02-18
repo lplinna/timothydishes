@@ -180,16 +180,16 @@ MonoBehaviour:
   curPut: '{s0.03}It''s a sunny day.
 
     {i0}You''re outside tending to a garden
-    of yellow flowers.
+    of&yellow flowers.
 
     {i0}The picturesque white wall of the household is a
     little too close to your face^6,&and the garden^6,&a little too small.
 
     {i0}But
-    it feels kind of cozy^6, since everything''s in arm''s reach.
+    it feels kind of cozy^6, since&everything''s in arm''s reach.
 
     {i0}The sun
-    shines down on your back^6, and the flowers glow.
+    shines down on your back^6, and the&flowers glow.
 
     {i0}Through the window
     just in front of you^6, you can see him.
@@ -197,7 +197,7 @@ MonoBehaviour:
     {i0}Timothy is doing the dishes.
 
     {i0}What
-    will you do?&_'
+    will you do?&{t0}'
 --- !u!114 &56011366
 MonoBehaviour:
   m_ObjectHideFlags: 0
